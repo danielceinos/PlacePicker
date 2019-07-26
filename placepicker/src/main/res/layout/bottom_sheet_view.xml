@@ -1,38 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_gravity="bottom"
-    >
+    android:layout_height="match_parent">
 
-  <com.google.android.material.floatingactionbutton.FloatingActionButton
-      android:id="@+id/place_chosen_button"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_margin="16dp"
-      android:scaleType="center"
-      app:backgroundTint="@color/colorPrimary"
-      app:elevation="3dp"
-      app:fabSize="normal"
-      app:layout_anchor="@id/root_bottom_sheet"
-      app:layout_anchorGravity="top|end"
-      app:srcCompat="@drawable/ic_check"
-      app:tint="@color/white"
-      />
+    <LinearLayout
+        android:id="@+id/root_bottom_sheet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
-  <LinearLayout
-      android:id="@+id/root_bottom_sheet"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:orientation="vertical"
-      app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
-      >
+        <include layout="@layout/bottom_header_view" />
 
-    <include
-        layout="@layout/bottom_header_view"/>
+    </LinearLayout>
 
-  </LinearLayout>
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/place_center_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:scaleType="center"
+        app:backgroundTint="@color/colorPrimary"
+        app:elevation="3dp"
+        app:fabSize="normal"
+        app:layout_constraintBottom_toTopOf="@+id/place_chosen_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/ic_location"
+        app:tint="@color/white" />
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/place_search_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:scaleType="center"
+        app:backgroundTint="@color/colorPrimary"
+        app:elevation="3dp"
+        app:fabSize="normal"
+        app:layout_constraintBottom_toTopOf="@+id/place_center_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/ic_search"
+        app:tint="@color/white" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/place_chosen_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:scaleType="center"
+        app:backgroundTint="@color/colorPrimary"
+        app:elevation="3dp"
+        app:fabSize="normal"
+        app:layout_anchor="@id/root_bottom_sheet"
+        app:layout_constraintBottom_toTopOf="@+id/root_bottom_sheet"
+        app:layout_constraintEnd_toEndOf="@+id/place_center_button"
+        app:layout_constraintStart_toStartOf="@+id/place_center_button"
+        app:srcCompat="@drawable/ic_check"
+        app:tint="@color/white" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

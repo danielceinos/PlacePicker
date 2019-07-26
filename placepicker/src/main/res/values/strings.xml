@@ -1,6 +1,9 @@
 <resources>
-  <string name="app_name">PlacePicker</string>
-  <string name="title_activity_place_picker">Map</string>
+    <string name="app_name">PlacePicker</string>
+    <string name="title_activity_place_picker">Map</string>
 
-  <string name="no_address">Not a valid Address</string>
+    <string name="no_address">Not a valid Address</string>
+    <string name="search_place">Search a place</string>
+    <string name="search_place_hint">Type an address or place</string>
+
 </resources>

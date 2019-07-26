@@ -19,7 +19,6 @@ class MainActivity : AppCompatActivity() {
 
         findViewById<Button>(R.id.open_place_picker_button).setOnClickListener {
             val intent = PlacePicker.IntentBuilder()
-                .setLatLong(40.748672, -73.985628)
                 .showLatLong(true)
                 .build(this)
             startActivityForResult(intent, Constants.PLACE_PICKER_REQUEST)

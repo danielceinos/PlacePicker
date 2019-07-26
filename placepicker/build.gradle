@@ -2,66 +2,42 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'com.github.dcendents.android-maven'
-apply plugin: 'com.jfrog.bintray'
 
-ext {
-  bintrayRepo = "Android"
-  bintrayName = "com.sucho.placepicker"
-  libraryName = 'placepicker'
-
-  publishedGroupId = 'com.sucho'
-  artifact = 'placepicker'
-  libraryVersion = '0.1.6'
-
-  libraryDescription = 'Free PlacePicker for Android using Google Maps'
-  siteUrl = 'https://github.com/suchoX/PlacePicker'
-  gitUrl = 'https://github.com/suchoX/PlacePicker.git'
-  developerId = 'sucho1994'
-  developerName = 'Suchandrim Sarkar'
-  developerEmail = 'suchandrim.sarkar@gmail.com'
-  licenseName = 'The 2-Clause BSD License'
-  licenseUrl = 'https://opensource.org/licenses/BSD-2-Clause'
-  allLicenses = ["BSD 2-Clause"]
-}
+group = 'com.github.danielceinos'
 
 android {
-  compileSdkVersion 28
+    compileSdkVersion 29
 
-  defaultConfig {
-    minSdkVersion 14
-    targetSdkVersion 28
-    versionCode 1
-    versionName "0.1.6"
-
-  }
-
-  buildTypes {
-    release {
-      minifyEnabled false
-      proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+    defaultConfig {
+        minSdkVersion 21
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0.0"
     }
-  }
-  androidExtensions {
-    experimental = true
-  }
 
-  defaultConfig {
-    vectorDrawables.useSupportLibrary = true
-  }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    androidExtensions {
+        experimental = true
+    }
+
+    defaultConfig {
+        vectorDrawables.useSupportLibrary = true
+    }
 }
-
 
 dependencies {
-  implementation fileTree(dir: 'libs', include: ['*.jar'])
-  implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-  implementation 'androidx.appcompat:appcompat:1.0.2'
-  implementation 'androidx.core:core-ktx:1.0.2'
-  implementation 'com.google.android.gms:play-services-maps:16.1.0'
-  implementation 'com.google.android.material:material:1.1.0-alpha07'
-  implementation 'androidx.constraintlayout:constraintlayout:2.0.0-beta1'
-}
-
-if (project.rootProject.file('local.properties').exists()) {
-  apply from: '../install.gradle'
-  apply from: '../bintray.gradle'
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'androidx.appcompat:appcompat:1.0.2'
+    implementation 'androidx.core:core-ktx:1.0.2'
+    implementation 'com.google.android.gms:play-services-maps:17.0.0'
+    implementation 'com.google.android.gms:play-services-location:17.0.0'
+    implementation 'com.google.android.libraries.places:places:2.0.0'
+    implementation 'com.google.android.material:material:1.1.0-alpha08'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.0-beta2'
 }
